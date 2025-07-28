@@ -78,8 +78,8 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24">
-      <div className="container-section">
+    <section id="contact" className="py-16 md:py-18">
+      <div className="container-section -mt-28">
         <motion.h2 
           className="section-title"
           initial="hidden"
