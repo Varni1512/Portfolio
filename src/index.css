@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-dark-light dark:text-light-light bg-light-light dark:bg-dark-light transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+@layer components {
+  .container-section {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-primary rounded-full;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors duration-300 inline-block;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent border-2 border-primary text-primary dark:text-white rounded-lg font-medium hover:bg-primary hover:text-white transition-colors duration-300 inline-block;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-dark shadow-lg rounded-xl p-6 transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .skill-item {
+    @apply flex flex-col items-center justify-center p-4 bg-white dark:bg-dark-dark rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .project-card {
+    @apply bg-white dark:bg-dark-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l-2 border-primary last:border-l-0;
+  }
+  
+  .timeline-dot {
+    @apply absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary;
+  }
+  
+  .social-icon {
+    @apply w-10 h-10 flex items-center justify-center rounded-full bg-light-dark dark:bg-dark-dark text-primary hover:bg-primary hover:text-white transition-colors duration-300;
+  }
+}
