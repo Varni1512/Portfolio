@@ -15,14 +15,14 @@ const projects = [
     githubLink: "https://github.com/Varni1512/OC-frontend"
   },
   {
-    id: 1,
-    title: "Resumind - AI-Powered Resume Analyzer",
+    id: 4,
+    title: "Converso -  AI-Powered Voice Learning Platform",
     category: "AI + Web Projects",
-    image: "https://s3-us-west-2.amazonaws.com/speedybrandimages/tmp_371b9e3b-80fc-4908-9643-a780e256a959.webp",
-    description: "Build an AI-powered resume analyzer that securely evaluates resumes, scores them against job listings, and provides smart optimization feedback for better job matching.",
-    technologies: ["React", "React Router v7", "Puter.com", "Puter.js", "Tailwind CSS","TypeScript"],
-    liveLink: "https://resumind-gilt.vercel.app/",
-    githubLink: "https://github.com/Varni1512/Ai-Resume"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjtczYfTSP8Dq2IrXouxHUmkBaikeH6FRIGDfkdNSVNHj0EewnmzX8A7paH6kSYwbVhDc&usqp=CAU",
+    description: "A study assistant platform integrating handwriting-to-text conversion, AI-generated quizzes, predictive PYQs, and Google Meet/Classroom integration for enhanced learning.",
+    technologies: ["Next.js", "Supabase", "Vapi API", "Clerk", "Sentry", "Shadcn UI"],
+    liveLink: "https://saas-seven-khaki.vercel.app/",
+    githubLink: "https://github.com/Varni1512/Saas-Project"
   },
   {
     id: 2,
@@ -45,26 +45,6 @@ const projects = [
     githubLink: "https://github.com/Varni1512/PlacementPrep",
   },
   {
-    id: 5,
-    title: "Code2Concept - DSA Learning Platform",
-    category: "AI + Web Projects",
-    image: "https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&auto=format&fit=crop&w=1180&q=80",
-    description: "An AI-powered SaaS tool that converts source code into human-understandable concepts and explanations. Ideal for beginners and technical document generation.",
-    technologies: ["React", "OpenAI API", "Node.js", "Tailwind CSS"],
-    liveLink: "https://code2-concept.vercel.app/",
-    githubLink: "https://github.com/Varni1512/Code2Concept"
-  },
-  {
-    id: 4,
-    title: "Converso -  AI-Powered Voice Learning Platform",
-    category: "AI + Web Projects",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjtczYfTSP8Dq2IrXouxHUmkBaikeH6FRIGDfkdNSVNHj0EewnmzX8A7paH6kSYwbVhDc&usqp=CAU",
-    description: "A study assistant platform integrating handwriting-to-text conversion, AI-generated quizzes, predictive PYQs, and Google Meet/Classroom integration for enhanced learning.",
-    technologies: ["Next.js", "Supabase", "Vapi API", "Clerk", "Sentry", "Shadcn UI"],
-    liveLink: "https://saas-seven-khaki.vercel.app/",
-    githubLink: "https://github.com/Varni1512/Saas-Project"
-  },
-  {
     id: 7,
     title: "QuickLingo - Real-Time Text Translator Chrome Extension",
     category: "Chrome Extension",
@@ -83,16 +63,6 @@ const projects = [
     technologies: ["HTML", "CSS", "JavaScript"],
     liveLink: "https://github.com/Varni1512/StudyShield",
     githubLink: "https://github.com/Varni1512/StudyShield",
-  },
-  {
-    id: 9,
-    title: "AI-Powered Text-to-Image Generator",
-    category: "AI + Web Projects",
-    image: "https://www.weetechsolution.com/wp-content/uploads/2023/01/imgpsh_fullsize_anim-4.jpg",
-    description: "Imagify lets you turn text into beautiful images in seconds. Simply enter a description, and our AI-powered tool will generate stunning visuals. With a smooth UI, seamless animations, and real-time notifications, creativity is at your fingertips!",
-    technologies: ["React", "Node.js", "MongoDB", "Clipdrop API"],
-    liveLink: "https://github.com/Varni1512/Imagify",
-    githubLink: "https://github.com/Varni1512/Imagify",
   },
   {
     id: 10,
@@ -135,26 +105,6 @@ const projects = [
     githubLink: "https://github.com/Varni1512/Cuberto-Using-Html",
   },
   {
-    id: 14,
-    title: "Recipe Finder App",
-    category: "Web Development",
-    image: "https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1167&q=80",
-    description: "A recipe application that allows users to search for recipes based on ingredients, dietary restrictions, and cuisine type. Features include saving favorites and meal planning.",
-    technologies: ["React", "Tailwind CSS", "JavaScript"],
-    liveLink: "https://vegdelight.netlify.app/",
-    githubLink: "https://github.com/Varni1512/VegDelight",
-  },
-  {
-    id: 15,
-    title: "Terminal Portfolio Website",
-    category: "Web Development",
-    image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-    description: "A personal portfolio website showcasing projects, skills, and experience. Features smooth animations, responsive design, and contact form integration.",
-    technologies: ["React", "Framer Motion", "Tailwind CSS"],
-    liveLink: "https://terminal-portfolio1.vercel.app/",
-    githubLink: "https://github.com/Varni1512/terminal-portfolio",
-  },
-  {
     id: 16,
     title: "N Queens Visualizer",
     category: "Algorithm-Based Project",
@@ -183,16 +133,6 @@ const projects = [
     technologies: ["HTML", "CSS", "JavaScript","Data Structures and Algorithms"],
     liveLink: "https://varni1512.github.io/Sudoku-Solver/",
     githubLink: "https://github.com/Varni1512/Sudoku-Solver",
-  },
-  {
-      id: 19,
-      title: "Top 11 Cricket Players Selection",
-      category: "Data Analytics",
-      image: "https://miro.medium.com/v2/resize:fit:1200/1*0y9DmDVpw3fWWmD96DEy-g.png",
-      description: "This project focuses on building a data-driven model and visualization tool to select the best 11 international cricket players using performance metrics based on the ICC T20 World Cup standards.",
-      technologies: ["Pandas","Microsoft Excel","Power BI"],
-      liveLink: "https://app.powerbi.com/links/ay7Ki3H5Zi?ctid=09bd1956-edda-4e9a-9543-7c7aa2cf4e81&pbi_source=linkShare&bookmarkGuid=eb6d497c-6977-4228-aef3-f8cb92b00892",
-      githubLink: "https://github.com/Varni1512/Top-11-Cricket-Players-Selection-using-Data-Analytics",
   },
   {
       id: 20,
@@ -335,7 +275,7 @@ const Projects = () => {
                   {project.technologies.map((tech, index) => (
                     <span 
                       key={index} 
-                      className="px-3 py-1 bg-light-dark dark:bg-dark-dark text-dark-light dark:text-light-light text-xs rounded-full"
+                      className="px-3 py-1 bg-light-dark dark:bg-light-dark text-dark-light dark:text-dark-light text-xs rounded-full"
                     >
                       {tech}
                     </span>

@@ -53,12 +53,19 @@ const About = () => {
             <h3 className="text-2xl font-bold mb-4">Who am I?</h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
               
-              Hi, I’m Varnikumar Patel, a B.Tech Computer Science student specializing in Artificial Intelligence and Machine Learning at VIT Bhopal. I’m a skilled web developer with strong mastery in frontend development, building modern, responsive, and user-friendly websites with React, Next.js, and Tailwind CSS.
-            </p>
-
-            <p className="text-gray-700 dark:text-gray-300 mb-8">
-              I also have solid experience in data analysis and machine learning, and I enjoy creating real-world projects that combine web development and AI for practical solutions. Along with this, I have a strong command of Data Structures and Algorithms in Java, and I practice coding daily to keep improving my problem-solving skills.
-             </p>
+              Hello, I&apos;m Varnikumar Patel, a third-year computer science
+              student at Vellore Institute of Technology, deeply immersed in the
+              world of full-stack web development. My journey began with
+              exploring the captivating realm of frontend development, where I
+              delved into technologies like React and Next.js, crafting
+              innovative projects along the way. My current focus is on
+              mastering the backend, with the goal of creating full-stack
+              applications that cater to a wide audience. Coding and graphic
+              design serve as my creative outlets, allowing me to transform
+              ideas into visually appealing and functional solutions. The
+              satisfaction of bringing creativity to life through lines of code
+              and eye-catching designs is truly fulfilling for me.
+              </p>
 
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">

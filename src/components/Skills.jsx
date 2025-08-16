@@ -21,7 +21,6 @@ const skillCategories = [
       { name: "HTML5", level: 95 },
       { name: "CSS3", level: 90 },
       { name: "JavaScript", level: 82 },
-      { name: "TypeScript", level: 60 },
       { name: "React.js", level: 95 },
       { name: "Next.js", level: 60 },
     ]
@@ -32,9 +31,7 @@ const skillCategories = [
     skills: [
       { name: "Tailwind CSS", level: 90 },
       { name: "Bootstrap", level: 88 },
-      { name: "Styled Components", level: 82 },
       { name: "Framer Motion", level: 78 },
-
     ]
   },
   {
@@ -53,7 +50,6 @@ const skillCategories = [
       { name: "MongoDB", level: 75 },
       { name: "MySQL", level: 60 },
       { name: "Firebase", level: 80 },
-      { name: "Supabase", level: 40 },
     ]
   },
   {
@@ -79,10 +75,10 @@ const skillCategories = [
     title: "Tools",
     icon: <FiTool size={24} />,
     skills: [
+      { name: "Figma", level: 60 },
       { name: "VS Code", level: 95 },
       { name: "Vapi API", level: 50 },
       { name: "Postman", level: 50 },
-      { name: "Sentry", level: 50 },
       { name: "Clerk", level: 50 },
     ]
   },
