@@ -11,6 +11,7 @@ import Certificates from './components/Certificates'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import SplashCursor from './components/SmokeyCursor'
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      <SplashCursor />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <motion.div
         initial={{ opacity: 0 }}
