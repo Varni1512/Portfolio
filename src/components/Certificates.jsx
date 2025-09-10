@@ -9,7 +9,7 @@ const certificatesData = [
     issuer: "Amazon",
     date: "September 2025",
     description: "Intensive specialization in Machine Learning covering supervised and unsupervised learning, feature engineering, model evaluation, and deployment. Completed hands-on projects using Python and AWS, strengthening practical ML skills and data-driven problem solving.",
-    link: "https://drive.google.com/file/d/1Otiazc-a94GPLCMyoPmTL8AvkHOsBBJM/view?usp=sharing"
+    link: "https://drive.google.com/file/d/1vEnZaJ5lAI-ufJnd3qMOSNgFm1OFNk08/view?usp=sharing"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const certificatesData = [
     issuer: "Postman",
     date: "August 2025",
     description: "Foundational specialization in API development and usage, covering RESTful principles, HTTP methods, JSON handling, and integration with frontend and backend applications. Completed hands-on exercises building and consuming APIs to enhance practical programming skills.",
-    link: "https://drive.google.com/file/d/1Otiazc-a94GPLCMyoPmTL8AvkHOsBBJM/view?usp=sharing"
+    link: "https://drive.google.com/file/d/1Qx5tK6ZS4QyXIrtU3D_jCNwrt-jACPkq/view?usp=sharing"
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const certificatesData = [
     issuer: "IIT, Kharagpur",
     date: "April 2024",
     description: "Specialization in Cloud Computing covering IaaS, PaaS, SaaS, virtualization, and deployment on cloud platforms. Gained hands-on experience with AWS services, cloud architecture design, and scalable system implementation.",
-    link: "https://drive.google.com/file/d/1Otiazc-a94GPLCMyoPmTL8AvkHOsBBJM/view?usp=sharing"
+    link: "https://drive.google.com/file/d/1d6_CjdYkKPBl_XB27Z9a4ZkWkjHsFZoa/view?usp=sharing"
   },
   {
     id: 4,
