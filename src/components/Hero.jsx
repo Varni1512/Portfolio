@@ -62,7 +62,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 mb-12"
           >
-            <a href="/Varnikumar_Patel_Resume.pdf" className="btn-secondary">
+            <a href="/Varnikumar_Resume.pdf" className="btn-secondary">
               Download Resume
             </a>
             <Link
