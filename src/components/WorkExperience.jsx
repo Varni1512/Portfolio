@@ -9,7 +9,7 @@ const experiences = [
     period: 'May 2025 – Present',
     location: 'Indore, India',
     achievements: [
-      'Architected and Deployed multiple high-performance web applications, contributing to projects like Quantera AI, Snix, Bruno, Pankh, Dr. Pawan Verma and several others.',
+      'Crafted 8+ responsive frontend applications using React.js, Next.js, and Tailwind CSS.',
       'Redesigned and Overhauled key UI components with React.js and Tailwind CSS, Improving mobile responsiveness by 40% and optimizing cross-device performance.',
       'Created immersive user experiences by integrating Framer Motion and GSAP animations, Growing user session duration by 25% and boosting interactivity.',
       'Conceptualized, Coded, and Tested reusable, scalable components; Restructured codebases to achieve 40% faster renders and a smoother UX.'
