@@ -22,7 +22,7 @@ const projects = [
     description: "AI-powered healthcare platform providing real-time voice consultations, symptom analysis, and automated prescriptions with 24/7 accessibility.",
     technologies: ["React", "Next.js", "Gemini API", "Vapi API", "Assembly AI", "Clerk", "Tailwind CSS"],
     liveLink: "https://swasthyasathi.vercel.app/",
-    githubLink: "https://github.com/Varni1512/SIH-2025"
+    githubLink: "https://github.com/Varni1512/SwasthyaSathi"
   },
   {
     id: 3,

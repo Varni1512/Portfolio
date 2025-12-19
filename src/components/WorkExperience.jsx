@@ -7,12 +7,24 @@ const experiences = [
     company: 'Mittal Alliance Industries Private Limited',
     role: 'Web Developer Intern',
     period: 'May 2025 – Present',
-    location: 'Indore, India',
+    location: 'Indore, India(Remote)',
     achievements: [
-      'Crafted 8+ responsive frontend applications using React.js, Next.js, and Tailwind CSS.',
-      'Redesigned and Overhauled key UI components with React.js and Tailwind CSS, Improving mobile responsiveness by 40% and optimizing cross-device performance.',
-      'Created immersive user experiences by integrating Framer Motion and GSAP animations, Growing user session duration by 25% and boosting interactivity.',
-      'Conceptualized, Coded, and Tested reusable, scalable components; Restructured codebases to achieve 40% faster renders and a smoother UX.'
+      'Built and maintained full-stack web applications using React.js, Next.js, Tailwind CSS, and Firebase.',
+      'Architected scalable frontend components and integrated real-time data handling features.',
+      'Managed a team of 6+ developers by assigning tasks, reviewing code, and tracking progress.',
+      'Worked closely with clients to understand requirements and deliver business-focused solutions.',
+    ]
+  },
+  {
+    company: 'BADVERSE',
+    role: 'Software Development Engineer (SDE) Intern',
+    period: 'February, 2025 – April, 2025',
+    location: 'SILICON VALLEY, USA(Remote)',
+    achievements: [
+      'Designed and developed the company website using React.js and Tailwind CSS from scratch.',
+      'Optimized website performance by improving rendering efficiency and reducing load times.',
+      'Implemented modular component architecture to ensure maintainability and code scalability.',
+      'Maintained production code by fixing issues, enhancing features, and ensuring stability.',
     ]
   }
 ];
@@ -46,14 +58,14 @@ const WorkExperience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <FiBriefcase size={32} className="text-blue-600" /> 
+          <FiBriefcase size={32} className="text-blue-600" />
           Work Experience
         </motion.h2>
-        
+
         <div className="relative">
           {/* Timeline vertical line */}
           <div className="absolute left-4 top-0 w-0.5 h-full bg-blue-200 dark:bg-blue-800" />
-          
+
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -69,9 +81,9 @@ const WorkExperience = () => {
               >
                 {/* Timeline dot */}
                 <div className="absolute left-2 top-2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg" />
-                
+
                 {/* Experience card */}
-                <div 
+                <div
                   className="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-200 dark:border-gray-700"
                 >
                   {/* Header */}
@@ -91,9 +103,9 @@ const WorkExperience = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Achievements */}
-                  <motion.ul 
+                  <motion.ul
                     className="space-y-3"
                     variants={containerVariants}
                     initial="hidden"
