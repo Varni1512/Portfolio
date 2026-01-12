@@ -37,12 +37,12 @@ npm run dev
 
 ### Open in your browser:
 ```
-http://localhost:3000/
+http://localhost:5173/
 ```
 
 
 ## 📞 Contact
-- **Portfolio**: varnikumarportfolio.vercel.app
-- **Email**: varnikumarp@gmail.com
+- **Portfolio**: varnikumar.vercel.app
+- **Email**: varni1505@gmail.com
 - **LinkedIn**: linkedin.com/in/varnikumarpatel
 - **GitHub**: github.com/Varni1512
