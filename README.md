@@ -21,7 +21,7 @@ Want to set up the portfolio locally? Follow these steps:
 
 ### Clone the repository:
 ```
-git clone https://github.com/yourusername/portfolio.git  
+git clone https://github.com/Varni1512/portfolio.git  
 cd portfolio
 ```
 
