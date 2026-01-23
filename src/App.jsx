@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="min-h-screen">
-      <SplashCursor />
+      {/* <SplashCursor /> */}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <motion.div
         initial={{ opacity: 0 }}
