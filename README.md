@@ -1,6 +1,6 @@
 # 🌐 Varnikumar's Portfolio
 
-🚀 [Live Demo](https://varnikumarportfolio.vercel.app/)
+🚀 [Live Demo](https://varnikumar.vercel.app/)
 
 ## 📌 About  
 Welcome to my personal portfolio! This website showcases my **projects, skills, achievements, and experience** in software development, full-stack engineering.
