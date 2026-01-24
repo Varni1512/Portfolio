@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-scroll'
-import { motion } from 'framer-motion'
-import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FiSun, FiMoon, FiMenu, FiX, FiCode } from 'react-icons/fi'
 
+// Saare options wapis add kar diye hain
 const navLinks = [
   { name: 'Home', to: 'hero', offset: 0 },
-  { name: 'About', to: 'about', offset: -70 },
-  { name: 'Skills', to: 'skills', offset: -70 },
-  { name: 'Work Experience', to: 'work-experience', offset: -70 },
-  { name: 'Projects', to: 'projects', offset: -70 },
-  { name: 'Education', to: 'education', offset: -70 },
-  { name: 'Certificates', to: 'certificates', offset: -70 },
-  { name: 'Contact', to: 'contact', offset: -70 },
+  { name: 'About', to: 'about', offset: -100 },
+  { name: 'Skills', to: 'skills', offset: -100 },
+  { name: 'Work Experience', to: 'work-experience', offset: -100 },
+  { name: 'Projects', to: 'projects', offset: -100 },
+  { name: 'Education', to: 'education', offset: -100 },
+  { name: 'Certificates', to: 'certificates', offset: -100 },
+  { name: 'Contact', to: 'contact', offset: -100 },
 ]
 
 const Navbar = ({ theme, toggleTheme }) => {
@@ -20,101 +21,91 @@ const Navbar = ({ theme, toggleTheme }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
+      setScrolled(window.scrollY > 50)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleMenu = () => setIsOpen(!isOpen)
-
   return (
     <motion.nav
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled
-          ? 'bg-white/90 dark:bg-dark/90 backdrop-blur-md shadow-lg py-3'
-          : 'bg-transparent py-5'
-        }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      className={`fixed z-50 transition-all duration-500 ease-in-out w-full flex justify-center 
+        ${scrolled ? 'top-4' : 'top-0'}`}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8 }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+      <div 
+        className={`
+          transition-all duration-500 ease-in-out relative flex items-center justify-between
+          ${scrolled 
+            ? 'w-[95%] xl:w-[85%] bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 shadow-2xl rounded-full py-2 px-6' 
+            : 'w-full bg-transparent py-6 px-6 md:px-12'
+          }
+        `}
+      >
+          {/* --- LOGO --- */}
           <Link
             to="hero"
-            spy={true}
             smooth={true}
             duration={500}
-            className="text-2xl font-bold text-primary cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer group flex-shrink-0"
           >
-            Varnikumar Portfolio
+            
+            <span className={`font-bold tracking-tight text-white ${scrolled ? 'text-lg' : 'text-xl'}`}>
+              Varnikumar<span className="text-purple-400">.dev</span>
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <ul className="flex space-x-6">
+          {/* --- DESKTOP NAV (Hidden on Mobile/Tablet due to many links) --- */}
+          {/* xl:flex kiya hai kyunki links bahut zyada hain, chhote laptops pe fat na jaye */}
+          <div className="hidden xl:flex items-center gap-4">
+            <ul className="flex bg-white/5 rounded-full p-1 border border-white/5 backdrop-blur-sm">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.to}
-                    spy={true}
+                    spy={true} // Jaruri hai active state detect karne ke liye
                     smooth={true}
                     offset={link.offset}
                     duration={500}
-                    className="text-dark-light dark:text-light-light hover:text-primary dark:hover:text-primary transition-colors duration-300 cursor-pointer"
-                    activeClass="text-primary font-medium"
+                    // 'activeClass' sirf tab apply hoga jab wo section screen par ho
+                    activeClass="!text-white !bg-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] font-semibold"
+                    className="cursor-pointer px-4 py-2 text-xs font-medium text-gray-400 transition-all duration-300 rounded-full hover:text-white hover:bg-white/5 block whitespace-nowrap"
                   >
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-light-dark dark:bg-dark-dark hover:bg-light dark:hover:bg-dark-light transition-colors duration-300"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <FiSun className="text-yellow-300" /> : <FiMoon className="text-primary" />}
-            </button>
+            
+            
           </div>
 
-          {/* Mobile Navigation Button */}
-          <div className="flex items-center md:hidden">
+          {/* --- MOBILE/TABLET TOGGLE (Visible below XL screens) --- */}
+          <div className="flex items-center xl:hidden gap-4">
+             
             <button
-              onClick={toggleTheme}
-              className="p-2 mr-2 rounded-full bg-light-dark dark:bg-dark-dark hover:bg-light dark:hover:bg-dark-light transition-colors duration-300"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <FiSun className="text-yellow-300" /> : <FiMoon className="text-primary" />}
-            </button>
-            <button
-              onClick={toggleMenu}
-              className="p-2 rounded-md text-dark-light dark:text-light-light hover:bg-light-dark dark:hover:bg-dark-dark transition-colors duration-300"
-              aria-label="Toggle menu"
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-200 hover:text-white transition-colors p-1"
             >
               {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
           </div>
-        </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      <div className="relative">
+      {/* --- MOBILE MENU OVERLAY --- */}
+      <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden bg-white dark:bg-dark-dark shadow-lg max-w-[300px] w-full absolute right-0 top-full rounded-lg"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-24 left-4 right-4 z-40 xl:hidden"
           >
-            <div className="px-6 py-4">
-              <ul className="flex flex-col space-y-4">
+            <div className="bg-[#121212]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-4 shadow-2xl max-h-[80vh] overflow-y-auto">
+              <ul className="grid grid-cols-1 gap-1">
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -123,9 +114,9 @@ const Navbar = ({ theme, toggleTheme }) => {
                       smooth={true}
                       offset={link.offset}
                       duration={500}
-                      className="block py-1 text-center text-dark-light dark:text-light-light hover:text-primary dark:hover:text-primary transition-colors duration-300"
-                      activeClass="text-primary font-medium"
                       onClick={() => setIsOpen(false)}
+                      activeClass="bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-white border border-white/10"
+                      className="block px-4 py-3 text-center text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                     >
                       {link.name}
                     </Link>
@@ -135,7 +126,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             </div>
           </motion.div>
         )}
-      </div>
+      </AnimatePresence>
 
     </motion.nav>
   )

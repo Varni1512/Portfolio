@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiBriefcase } from 'react-icons/fi';
+import { FiBriefcase, FiMapPin, FiArrowUpRight } from 'react-icons/fi';
 
 const experiences = [
   {
     company: 'Mittal Alliance Industries Private Limited',
     role: 'Web Developer Intern',
-    period: 'May 2025 – Present',
-    location: 'Indore, India(Remote)',
+    period: 'May 2025 – Jan 2026',
+    location: 'Indore, India (Hybrid)',
+    current: true,
     achievements: [
       'Built and maintained full-stack web applications using React.js, Next.js, Tailwind CSS, and Firebase.',
       'Architected scalable frontend components and integrated real-time data handling features.',
@@ -17,9 +18,10 @@ const experiences = [
   },
   {
     company: 'BADVERSE',
-    role: 'Software Development Engineer (SDE) Intern',
-    period: 'February, 2025 – April, 2025',
-    location: 'SILICON VALLEY, USA(Remote)',
+    role: 'SDE Intern',
+    period: 'Feb 2025 – Apr 2025',
+    location: 'Silicon Valley, USA (Remote)',
+    current: false,
     achievements: [
       'Designed and developed the company website using React.js and Tailwind CSS from scratch.',
       'Optimized website performance by improving rendering efficiency and reducing load times.',
@@ -29,106 +31,96 @@ const experiences = [
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -40 },
-  visible: { opacity: 1, x: 0 },
-};
-
-const achievementVariants = {
-  hidden: { opacity: 0, x: 20 },
-  visible: { opacity: 1, x: 0 },
-};
-
 const WorkExperience = () => {
   return (
-    <section id="work-experience" className="py-16 md:py-18 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-4xl mx-auto px-6">
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12 flex items-center gap-3 justify-center text-gray-800 dark:text-white"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <FiBriefcase size={32} className="text-blue-600" />
-          Work Experience
-        </motion.h2>
-
-        <div className="relative">
-          {/* Timeline vertical line */}
-          <div className="absolute left-4 top-0 w-0.5 h-full bg-blue-200 dark:bg-blue-800" />
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
+    <section id="work-experience" className="py-12 bg-white dark:bg-[#050505] text-gray-900 dark:text-gray-100 transition-colors duration-300">
+      <div className="container mx-auto px-6 max-w-5xl">
+        
+        {/* Header with Gradient */}
+        <div className="mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold tracking-tight mb-4 flex items-center gap-3"
           >
-            {experiences.map((exp, idx) => (
-              <motion.div
-                key={idx}
-                className="relative pl-12 pb-8"
-                variants={itemVariants}
-                transition={{ duration: 0.6 }}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-2 top-2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg" />
-
-                {/* Experience card */}
-                <div
-                  className="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-200 dark:border-gray-700"
-                >
-                  {/* Header */}
-                  <div className="mb-4">
-                    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-2">
-                      <div>
-                        <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 mb-1">
-                          {exp.company}
-                        </h3>
-                        <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
-                          {exp.role}
-                        </h4>
-                      </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400 lg:text-right">
-                        <div className="font-medium">{exp.period}</div>
-                        <div>{exp.location}</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Achievements */}
-                  <motion.ul
-                    className="space-y-3"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                  >
-                    {exp.achievements.map((achievement, achievementIdx) => (
-                      <motion.li
-                        key={achievementIdx}
-                        className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
-                        variants={achievementVariants}
-                        transition={{ duration: 0.4, delay: achievementIdx * 0.1 }}
-                      >
-                        <span className="text-blue-600 mt-2 flex-shrink-0">•</span>
-                        <span className="leading-relaxed">{achievement}</span>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+            <FiBriefcase className="text-gray-400 dark:text-gray-600" />
+            <span className="text-[#A855F7]">
+              Work Experience
+            </span>
+          </motion.h2>
+          <div className="h-px w-full bg-gray-200 dark:bg-gray-800" />
         </div>
+
+        <div className="space-y-12">
+          {experiences.map((exp, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="group relative grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 transition-all"
+            >
+              {/* Left Column: Dates */}
+              <div className="md:col-span-3">
+                <div className="flex flex-col items-start">
+                  <span className="text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-400 font-mono mb-1">
+                    {exp.period}
+                  </span>
+                  
+                </div>
+              </div>
+
+              {/* Right Column: Content */}
+              <div className="md:col-span-9 relative">
+                {/* Visual Connector Line */}
+                <div className="hidden md:block absolute -left-8 top-2 bottom-0 w-px bg-gray-200 dark:bg-[#A855F7] transition-colors" />
+                
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white flex flex-wrap items-center gap-2">
+                  {exp.role}
+                  <span className="text-gray-400 dark:text-gray-600 font-normal">at</span>
+                  
+                  {/* Company Name with Gradient */}
+                  <span className="font-extrabold text-[#A855F7]">
+                    {exp.company}
+                  </span>
+                </h3>
+
+                <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mt-1 mb-4 font-mono">
+                  <FiMapPin size={14} />
+                  {exp.location}
+                </div>
+
+                <ul className="space-y-3">
+                  {exp.achievements.map((achievement, i) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {/* Bullet Point with Gradient on Hover */}
+                      <span className="mt-1.5 min-w-[6px] h-[6px] bg-gray-300 dark:bg-gray-600 rounded-sm group-hover:bg-[#A855F7] transition-colors" />
+                      <span className="group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300">
+                        {achievement}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom Resume Link */}
+        <div className="mt-16 flex justify-end">
+           <a 
+             href="/Varnikumar_Resume.pdf" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-blue-400 transition-all group"
+           >
+             View Full Resume
+             <FiArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-gray-900 dark:text-white group-hover:text-blue-400" />
+           </a>
+        </div>
+        
       </div>
     </section>
   );

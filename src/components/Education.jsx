@@ -1,20 +1,22 @@
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import { FiBookOpen, FiCalendar, FiMapPin } from 'react-icons/fi'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { FiBookOpen, FiCalendar, FiMapPin, FiAward } from 'react-icons/fi';
 
 const educationData = [
   {
     id: 1,
-    degree: "Bachelor of Science in Computer Science(AIML)",
+    degree: "Bachelor of Science in Computer Science (AIML)",
     institution: "VIT University",
     location: "Bhopal, India",
     period: "2023 - Ongoing",
-    cgpa: "8.05",
-    description: "Specialized in Artificial Intelligence and Machine Learning. Focused on Software Engineering and User Interface Design. Participated in multiple hackathons and coding competitions.",
+    cgpa: "7.83",
+    // description removed to keep it clean, focused on achievements
     achievements: [
-      "Qualified for the Internal Round of Smart India Hackathon 2024",
-      "Ranked in the Top 50 of Vulture Hackathon among 1,000+ participants",
-      "Technical Team Lead for Ramanujan Mathematica and SAP Club & Gujarati Club"
+      "Specialized in AI & ML with focus on Software Engineering.",
+      "Qualified for the Internal Round of Smart India Hackathon 2024.",
+      "Selected for Amazon ML Summer School — Top 5% among 50,000+ applicants.",
+      "Technical Team Lead for Ramanujan Mathematica & SAP Club."
     ]
   },
   {
@@ -23,242 +25,104 @@ const educationData = [
     institution: "Baps Swaminarayan Vidhyamandir",
     location: "Gondal, India",
     period: "2019 - 2023",
-    percentile: "75.33",
-    description: "Completed Higher Secondary Education with a strong foundation in Mathematics. ",
+    percentile: "75.33%",
     achievements: [
-      "Best Speaker Award",
-      "Excellence in Singing",
-      "Skilled Tabla Player"
+      "Completed with a strong foundation in Mathematics.",
+      "Received Best Speaker Award.",
+      "Recognized for Excellence in Singing & Tabla."
     ]
   },
 ]
 
 const Education = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  })
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 50,
-      scale: 0.9
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  }
-
-  const cardHoverVariants = {
-    hover: {
-      scale: 1.02,
-      boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut"
-      }
-    }
-  }
-
-  const iconVariants = {
-    hidden: { scale: 0, rotate: -180 },
-    visible: { 
-      scale: 1, 
-      rotate: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 10,
-        delay: 0.3
-      }
-    }
-  }
-
-  const achievementVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: (i) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: i * 0.1 + 0.5,
-        duration: 0.4,
-        ease: "easeOut"
-      }
-    })
-  }
-
-  const dotVariants = {
-    hidden: { scale: 0 },
-    visible: {
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 20
-      }
-    }
-  }
+  const accentColor = "text-[#A855F7]";
+  const bgAccentColor = "bg-[#A855F7]";
+  const borderAccentColor = "border-[#A855F7]";
 
   return (
-    <section id="education" className="py-16 md:py-18">
-      <div className="container-sectionv -mt-18">
-        <motion.h2 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          Education
-        </motion.h2>
+    <section id="education" className="py-12 bg-white dark:bg-[#050505] text-gray-900 dark:text-gray-100 transition-colors duration-300">
+      <div className="container mx-auto px-6 max-w-5xl">
         
-        <motion.div 
-          ref={ref}
-          className="mt-12 max-w-3xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
+        {/* Header */}
+        <div className="mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold tracking-tight mb-4 flex items-center gap-3"
+          >
+            <FiBookOpen className={`${accentColor}`} />
+            <span className={`${accentColor}`}>Education</span>
+          </motion.h2>
+          <div className="h-px w-full bg-gray-200 dark:bg-gray-800" />
+        </div>
+
+        <div className="space-y-12">
           {educationData.map((item, index) => (
-            <motion.div 
+            <motion.div
               key={item.id}
-              className="timeline-item"
-              variants={itemVariants}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 relative"
             >
-              <motion.div 
-                className="timeline-dot"
-                variants={dotVariants}
-                whileHover={{ scale: 1.2, backgroundColor: "#3b82f6" }}
-              ></motion.div>
-              <motion.div 
-                className="card mb-6"
-                variants={cardHoverVariants}
-                whileHover="hover"
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <motion.h3 
-                    className="text-xl font-bold"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                    transition={{ delay: index * 0.3 + 0.4, duration: 0.5 }}
-                  >
-                    {item.degree}
-                  </motion.h3>
-                  <motion.div 
-                    className="flex items-center text-primary mt-2 md:mt-0"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-                    transition={{ delay: index * 0.3 + 0.5, duration: 0.5 }}
-                  >
-                    <motion.div variants={iconVariants}>
-                      <FiCalendar className="mr-1" />
-                    </motion.div>
-                    <span className="text-sm">{item.period}</span>
-                  </motion.div>
+              
+              {/* Left Column: Period & Location (The Context) */}
+              <div className="md:col-span-3 flex flex-col items-start">
+                <div className="flex items-center gap-2 font-mono text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">
+                  <FiCalendar className={accentColor} size={14} />
+                  {item.period}
                 </div>
-                
-                <div className="flex items-center mb-4">
-                  <motion.div 
-                    className="flex items-center mr-4"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ delay: index * 0.3 + 0.6, duration: 0.4 }}
-                  >
-                    <motion.div variants={iconVariants}>
-                      <FiBookOpen className="text-primary mr-2" />
-                    </motion.div>
-                    <span className="text-gray-600 dark:text-gray-300">{item.institution}</span>
-                  </motion.div>
-                  <motion.div 
-                    className="flex items-center"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ delay: index * 0.3 + 0.7, duration: 0.4 }}
-                  >
-                    <motion.div variants={iconVariants}>
-                      <FiMapPin className="text-primary mr-2" />
-                    </motion.div>
-                    <span className="text-gray-600 dark:text-gray-300">{item.location}</span>
-                  </motion.div>
+                <div className="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500">
+                  <FiMapPin size={12} />
+                  {item.location}
                 </div>
+              </div>
+
+              {/* Right Column: Main Content */}
+              <div className="md:col-span-9 relative md:pl-8 border-l-0 md:border-l border-gray-200 dark:border-gray-800">
                 
-                {/* <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {item.description}
-                </p> */}
-                
-                {item.cgpa && (
-                  <motion.p 
-                    className="text-gray-600 dark:text-gray-300 mb-2"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ delay: index * 0.3 + 0.8, duration: 0.4 }}
-                  >
-                    <strong>CGPA:</strong> {item.cgpa}
-                  </motion.p>
-                )}
-                
-                {item.percentile && (
-                  <motion.p 
-                    className="text-gray-600 dark:text-gray-300 mb-2"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ delay: index * 0.3 + 0.8, duration: 0.4 }}
-                  >
-                    <strong>Percentile:</strong> {item.percentile}
-                  </motion.p>
-                )}
-                
-                <div>
-                  <motion.h4 
-                    className="font-semibold mb-2"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                    transition={{ delay: index * 0.3 + 0.9, duration: 0.4 }}
-                  >
-                    Key Achievements:
-                  </motion.h4>
-                  <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300 cursor-pointer">
-                    {item.achievements.map((achievement, i) => (
-                      <motion.li 
-                        key={i}
-                        custom={i}
-                        variants={achievementVariants}
-                        initial="hidden"
-                        animate={inView ? "visible" : "hidden"}
-                        whileHover={{ 
-                          x: 5, 
-                          color: "#3b82f6",
-                          transition: { duration: 0.2 }
-                        }}
-                      >
+                {/* Timeline Dot (Desktop only) */}
+                <div className={`hidden md:block absolute -left-[5px] top-2 w-[9px] h-[9px] rounded-full bg-white dark:bg-[#050505] border-2 ${borderAccentColor} z-10`} />
+
+                {/* Degree & Institution */}
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight">
+                      {item.degree}
+                    </h3>
+                    <h4 className="text-lg text-gray-500 dark:text-gray-400 font-medium mt-1">
+                      {item.institution}
+                    </h4>
+                  </div>
+
+                  {/* Grade Badge (The Verified Stat) */}
+                  <div className="flex-shrink-0">
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-sm font-bold border ${bgAccentColor}/10 ${accentColor} ${borderAccentColor}/20`}>
+                      <FiAward size={14} />
+                      {item.cgpa ? `CGPA: ${item.cgpa}` : `Percentile: ${item.percentile}`}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Achievements List */}
+                <ul className="space-y-3 mt-4">
+                  {item.achievements.map((achievement, i) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+                      {/* Square Bullet for Technical feel */}
+                      <span className={`mt-2 min-w-[6px] h-[6px] ${bgAccentColor} rounded-sm opacity-60 group-hover:opacity-100 transition-opacity`} />
+                      <span className="group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
                         {achievement}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

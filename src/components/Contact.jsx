@@ -1,10 +1,11 @@
 import { useState, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import emailjs from '@emailjs/browser'
 import { 
   FiMail, FiPhone, FiMapPin, FiSend, 
-  FiLinkedin, FiGithub, FiTwitter, FiInstagram 
+  FiLinkedin, FiGithub, FiTwitter, FiInstagram,
+  FiCheckCircle, FiAlertCircle, FiMessageSquare
 } from 'react-icons/fi'
 
 const Contact = () => {
@@ -24,14 +25,19 @@ const Contact = () => {
     triggerOnce: true,
   })
 
-  // EmailJS configuration
+  // EmailJS configuration (Keep your IDs)
   const SERVICE_ID = 'service_x9emdoi' 
   const TEMPLATE_ID = 'template_n1nnzwn' 
   const PUBLIC_KEY = 'nE0DTkGpW9CdX5Ng1'
 
+  // Theme Constants
+  const accentColor = "text-[#A855F7]";
+  const bgAccentColor = "bg-[#A855F7]";
+  const borderFocusColor = "focus:border-[#A855F7]";
+  const ringFocusColor = "focus:ring-[#A855F7]";
+
   const handleChange = (e) => {
     const { name, value } = e.target
-    // Map EmailJS field names to formData keys
     const fieldMap = {
       'user_name': 'name',
       'user_email': 'email',
@@ -47,24 +53,16 @@ const Contact = () => {
     setIsSubmitting(true)
     setSubmitStatus(null)
     
-    // Send email using EmailJS
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
-      .then((result) => {
-        console.log('Email sent successfully:', result.text)
+      .then(() => {
         setSubmitStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
-        
-        // Reset form reference as well
         form.current.reset()
-        
-        // Reset status after 5 seconds
         setTimeout(() => setSubmitStatus(null), 5000)
       })
       .catch((error) => {
-        console.error('Email send failed:', error.text)
+        console.error('Email failed:', error)
         setSubmitStatus('error')
-        
-        // Reset status after 5 seconds
         setTimeout(() => setSubmitStatus(null), 5000)
       })
       .finally(() => {
@@ -72,194 +70,222 @@ const Contact = () => {
       })
   }
 
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  }
+  const contactInfo = [
+    {
+      icon: <FiMail />,
+      title: "Email",
+      value: "varni1505@gmail.com",
+      link: "mailto:varni1505@gmail.com",
+      color: "text-blue-400",
+      bg: "bg-blue-400/10"
+    },
+    {
+      icon: <FiPhone />,
+      title: "Phone",
+      value: "+91 9510728395",
+      link: "tel:+919510728395",
+      color: "text-green-400",
+      bg: "bg-green-400/10"
+    },
+    {
+      icon: <FiMapPin />,
+      title: "Location",
+      value: "Gujarat, India",
+      link: null,
+      color: "text-purple-400",
+      bg: "bg-purple-400/10"
+    }
+  ]
+
+  const socialLinks = [
+    { icon: <FiLinkedin />, href: "https://www.linkedin.com/in/varnikumarpatel", color: "hover:text-blue-500" },
+    { icon: <FiGithub />, href: "https://github.com/Varni1512", color: "hover:text-white" },
+    { icon: <FiTwitter />, href: "https://x.com/varni152", color: "hover:text-sky-400" },
+    { icon: <FiInstagram />, href: "https://www.instagram.com/varni_1512", color: "hover:text-pink-500" },
+  ]
 
   return (
-    <section id="contact" className="py-16 md:py-18">
-      <div className="container-section -mt-28">
-        <motion.h2 
-          className="section-title"
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeIn}
-          transition={{ duration: 0.5 }}
-        >
-          Get In Touch
-        </motion.h2>
-        
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+    <section id="contact" className="py-12 relative bg-[#0a0a0a] text-white overflow-hidden">
+      
+      {/* Background Ambience */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[20%] right-[10%] w-72 h-72 bg-purple-900/20 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[10%] left-[10%] w-72 h-72 bg-blue-900/10 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10 max-w-6xl">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          
+          {/* LEFT SIDE: Info & Context */}
           <motion.div
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={fadeIn}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
-              Feel free to reach out to me for any questions, project inquiries, or just to say hello. 
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-            </p>
-            
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="p-3 rounded-lg bg-primary/10 text-primary mr-4">
-                  <FiMail size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Email</h4>
-                  <a href="mailto:varni1505@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-300">
-                    varni1505@gmail.com
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="p-3 rounded-lg bg-primary/10 text-primary mr-4">
-                  <FiPhone size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Phone</h4>
-                  <a href="tel:+919510728395" className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-300">
-                    +91 9510728395
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="p-3 rounded-lg bg-primary/10 text-primary mr-4">
-                  <FiMapPin size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Ankleshwar, Gujarat, India
-                  </p>
-                </div>
-              </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-gray-300 mb-6">
+              <span className={`w-2 h-2 rounded-full ${bgAccentColor} animate-pulse`}></span>
+              Contact
             </div>
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Let's build something <br />
+              <span className={accentColor}>extraordinary.</span>
+            </h2>
             
-            <div className="mt-10">
-              <h4 className="font-semibold mb-4">Connect with me</h4>
-              <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/in/varnikumarpatel" className="social-icon">
-                  <FiLinkedin size={20} />
+            <p className="text-gray-400 text-lg mb-12 leading-relaxed">
+              Whether you have a question, a project idea, or just want to say hi, I'm always open to discussing new opportunities and how we can work together.
+            </p>
+
+            {/* Contact Tiles */}
+            <div className="space-y-6 mb-12">
+              {contactInfo.map((item, index) => (
+                <a 
+                  key={index}
+                  href={item.link}
+                  className={`flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-all duration-300 group ${item.link ? 'cursor-pointer' : 'cursor-default'}`}
+                >
+                  <div className={`p-3 rounded-lg ${item.bg} ${item.color} text-xl group-hover:scale-110 transition-transform`}>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-sm text-gray-400 font-medium">{item.title}</h4>
+                    <p className="text-lg font-semibold text-gray-200 group-hover:text-white transition-colors">
+                      {item.value}
+                    </p>
+                  </div>
                 </a>
-                <a href="https://github.com/Varni1512" className="social-icon">
-                  <FiGithub size={20} />
-                </a>
-                <a href="https://x.com/varni152" className="social-icon">
-                  <FiTwitter size={20} />
-                </a>
-                <a href="https://www.instagram.com/varni_1512?igsh=MWV1YzR3bTF3aXdlOA==" className="social-icon">
-                  <FiInstagram size={20} />
-                </a>
+              ))}
+            </div>
+
+            {/* Social Dock */}
+            <div>
+              <h4 className="text-sm font-medium text-gray-400 mb-4 uppercase tracking-wider">Follow Me</h4>
+              <div className="flex gap-4">
+                {socialLinks.map((social, idx) => (
+                  <a
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`p-3 rounded-full bg-white/5 border border-white/10 text-gray-400 transition-all duration-300 hover:bg-white/10 hover:scale-110 ${social.color}`}
+                  >
+                    <span className="text-xl">{social.icon}</span>
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>
-          
+
+          {/* RIGHT SIDE: The Form */}
           <motion.div
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={fadeIn}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
           >
-            <div className="card">
-              <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
+            {/* Form Container (Glass Card) */}
+            <div className="p-8 md:p-10 rounded-3xl bg-[#121212]/80 backdrop-blur-xl border border-white/10 shadow-2xl relative overflow-hidden">
               
-              {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-lg">
-                  Your message has been sent successfully! I'll get back to you soon.
+              {/* Subtle Gradient Glow inside card */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-[80px] pointer-events-none" />
+
+              <div className="flex items-center gap-3 mb-8">
+                <FiMessageSquare className={accentColor} size={24} />
+                <h3 className="text-2xl font-bold">Send a Message</h3>
+              </div>
+
+              {/* Status Messages (Toast Style) */}
+              <AnimatePresence>
+                {submitStatus && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className={`mb-6 p-4 rounded-xl flex items-center gap-3 ${
+                      submitStatus === 'success' 
+                        ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
+                        : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                    }`}
+                  >
+                    {submitStatus === 'success' ? <FiCheckCircle size={20} /> : <FiAlertCircle size={20} />}
+                    <p className="text-sm font-medium">
+                      {submitStatus === 'success' 
+                        ? "Message sent! I'll get back to you soon." 
+                        : "Something went wrong. Please try again."}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <form ref={form} onSubmit={handleSubmit} className="space-y-5 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-400">Name</label>
+                    <input
+                      type="text"
+                      name="user_name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className={`w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-1 ${ringFocusColor} ${borderFocusColor} transition-all`}
+                      placeholder="John Doe"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-400">Email</label>
+                    <input
+                      type="email"
+                      name="user_email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className={`w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-1 ${ringFocusColor} ${borderFocusColor} transition-all`}
+                      placeholder="john@example.com"
+                    />
+                  </div>
                 </div>
-              )}
-              
-              {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-lg">
-                  Failed to send message. Please try again or contact me directly via email.
-                </div>
-              )}
-              
-              <form ref={form} onSubmit={handleSubmit}>
-                <div className="mb-4">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Your Name
-                  </label>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-400">Subject</label>
                   <input
                     type="text"
-                    id="name"
-                    name="user_name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-dark-dark text-gray-900 dark:text-white"
-                  />
-                </div>
-                
-                <div className="mb-4">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="user_email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-dark-dark text-gray-900 dark:text-white"
-                  />
-                </div>
-                
-                <div className="mb-4">
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-dark-dark text-gray-900 dark:text-white"
+                    className={`w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-1 ${ringFocusColor} ${borderFocusColor} transition-all`}
+                    placeholder="Project Inquiry"
                   />
                 </div>
-                
-                <div className="mb-6">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Your Message
-                  </label>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-400">Message</label>
                   <textarea
-                    id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-dark-dark text-gray-900 dark:text-white resize-none"
+                    className={`w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-1 ${ringFocusColor} ${borderFocusColor} transition-all resize-none`}
+                    placeholder="Tell me about your project..."
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary w-full flex items-center justify-center"
+                  className={`w-full py-4 rounded-xl font-bold text-white shadow-lg flex items-center justify-center gap-2 transition-all transform hover:-translate-y-1 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed mt-2
+                    ${isSubmitting ? 'bg-gray-600' : 'bg-gradient-to-r from-purple-600 to-blue-600 hover:shadow-purple-500/25'}`}
                 >
                   {isSubmitting ? (
-                    <span className="inline-flex items-center">
-                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       Sending...
-                    </span>
+                    </>
                   ) : (
-                    <span className="inline-flex items-center">
-                      <FiSend className="mr-2" />
-                      Send Message
-                    </span>
+                    <>
+                      <FiSend /> Send Message
+                    </>
                   )}
                 </button>
               </form>

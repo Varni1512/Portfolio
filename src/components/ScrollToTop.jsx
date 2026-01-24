@@ -7,7 +7,8 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      // Thoda aur scroll hone par dikhana better rehta hai (e.g. 500px)
+      if (window.pageYOffset > 500) {
         setIsVisible(true)
       } else {
         setIsVisible(false)
@@ -30,15 +31,29 @@ const ScrollToTop = () => {
       {isVisible && (
         <motion.button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-white shadow-lg z-50 hover:bg-primary-dark transition-colors duration-300"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.5 }}
-          whileHover={{ scale: 1.1 }}
+          className="fixed bottom-4 lg:bottom-8 right-4 lg:right-8 p-3.5 rounded-full bg-black/20 backdrop-blur-xl border border-white/10 text-[#A855F7] shadow-lg z-50 group transition-all duration-300"
+          
+          // Initial Animation (Slide Up)
+          initial={{ opacity: 0, y: 20, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.8 }}
+          
+          // Hover Animation (Glow & Fill)
+          whileHover={{ 
+            scale: 1.1, 
+            backgroundColor: "#A855F7", 
+            color: "#ffffff",
+            borderColor: "#A855F7",
+            boxShadow: "0 0 20px rgba(168, 85, 247, 0.4)" 
+          }}
           whileTap={{ scale: 0.9 }}
           aria-label="Scroll to top"
         >
-          <FiArrowUp size={20} />
+          {/* Arrow Animation on Hover */}
+          <FiArrowUp 
+            size={22} 
+            className="group-hover:-translate-y-1 transition-transform duration-300 ease-in-out" 
+          />
         </motion.button>
       )}
     </AnimatePresence>
