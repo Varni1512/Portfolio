@@ -125,8 +125,8 @@ const Hero = () => {
             transition={{ delay: 0.8 }}
             className="mt-16 flex items-center gap-6 text-gray-500"
           >
-             <a href="#" className="hover:text-white transition-colors"><FiGithub size={24} /></a>
-             <a href="#" className="hover:text-white transition-colors"><FiLinkedin size={24} /></a>
+             <a href="https://github.com/Varni1512" className="hover:text-white transition-colors"><FiGithub size={24} /></a>
+             <a href="https://www.linkedin.com/in/varnikumarpatel" className="hover:text-white transition-colors"><FiLinkedin size={24} /></a>
              {/* <div className="h-px w-20 bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div> */}
           </motion.div>
 
