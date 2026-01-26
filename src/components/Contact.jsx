@@ -30,7 +30,6 @@ const Contact = () => {
   const TEMPLATE_ID = 'template_n1nnzwn' 
   const PUBLIC_KEY = 'nE0DTkGpW9CdX5Ng1'
 
-  // Theme Constants
   const accentColor = "text-[#A855F7]";
   const bgAccentColor = "bg-[#A855F7]";
   const borderFocusColor = "focus:border-[#A855F7]";
