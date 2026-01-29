@@ -256,7 +256,6 @@ const Projects = () => {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    // Add error handling for images
                     onError={(e) => {
                       e.target.src = "https://via.placeholder.com/600x400?text=Project+Image"; // Fallback image
                     }}
