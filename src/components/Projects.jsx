@@ -5,6 +5,16 @@ import { FiExternalLink, FiGithub, FiCode, FiLayers } from 'react-icons/fi'
 
 const projects = [
   {
+    id: 0,
+    title: "Macbook 3D website",
+    category: "Web Dev",
+    image: "/mac.png",
+    description: "Apple-style 3D website built with React, Three.js, GSAP, and TailwindCSS! Showcase products in immersive 3D scenes, scroll-animated models, and pinned sections. Featuring responsive design, smooth timeline animations, and visually striking image transitions—perfect for developers creating interactive, modern web experiences.",
+    technologies: ["React", "Three.js", "GSAP", "TailwindCSS"],
+    liveLink: "https://macbook-sigma.vercel.app/",
+    githubLink: "https://github.com/Varni1512/Macbook"
+  },
+  {
     id: 1,
     title: "KisanHub - MERN Based Smart Agriculture Marketplace",
     category: "AI + Web",
