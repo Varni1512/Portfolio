@@ -113,7 +113,7 @@ const Contact = () => {
         <div className="absolute bottom-[10%] left-[10%] w-72 h-72 bg-blue-900/10 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 max-w-6xl">
+      <div className="container mx-auto px-6 relative z-10 max-w-7xl">
         <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           
           {/* LEFT SIDE: Info & Context */}

@@ -41,7 +41,7 @@ const Education = () => {
 
   return (
     <section id="education" className="py-12 bg-[#050505] text-gray-100 transition-colors duration-300">
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-6 max-w-7xl">
         
         {/* Header */}
         <div className="mb-16">

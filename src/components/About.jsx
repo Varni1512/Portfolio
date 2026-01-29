@@ -38,7 +38,7 @@ const About = () => {
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container  mx-auto px-6 relative z-10">
         <motion.div 
           ref={ref}
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
@@ -50,8 +50,8 @@ const About = () => {
           {/* LEFT COLUMN: Image & Decor */}
           <motion.div variants={itemVariants} className="relative group">
             {/* Abstract Background Shapes behind image */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500 to-blue-500 rounded-3xl rotate-6 opacity-30 blur-lg group-hover:rotate-3 transition-transform duration-700"></div>
-            <div className="absolute inset-0 bg-white/5 rounded-3xl -rotate-3 backdrop-blur-sm border border-white/10"></div>
+            {/* <div className="absolute inset-0 bg-gradient-to-tr from-purple-500 to-blue-500 rounded-3xl rotate-6 opacity-30 blur-lg group-hover:rotate-3 transition-transform duration-700"></div>
+            <div className="absolute inset-0 bg-white/5 rounded-3xl -rotate-3 backdrop-blur-sm border border-white/10"></div> */}
             
             {/* Main Image Container */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/5] lg:aspect-square">
