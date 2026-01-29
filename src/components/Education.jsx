@@ -40,7 +40,7 @@ const Education = () => {
   const borderAccentColor = "border-[#A855F7]";
 
   return (
-    <section id="education" className="py-12 bg-[#050505] dark:bg-[#050505] text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <section id="education" className="py-12 bg-[#050505] text-gray-100 transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-5xl">
         
         {/* Header */}
@@ -54,7 +54,7 @@ const Education = () => {
             <FiBookOpen className={`${accentColor}`} />
             <span className={`${accentColor}`}>Education</span>
           </motion.h2>
-          <div className="h-px w-full bg-gray-200 dark:bg-gray-800" />
+          <div className="h-px w-full bg-gray-800" />
         </div>
 
         <div className="space-y-12">
@@ -70,29 +70,29 @@ const Education = () => {
               
               {/* Left Column: Period & Location (The Context) */}
               <div className="md:col-span-3 flex flex-col items-start">
-                <div className="flex items-center gap-2 font-mono text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">
+                <div className="flex items-center gap-2 font-mono text-sm font-semibold text-gray-400 mb-1">
                   <FiCalendar className={accentColor} size={14} />
                   {item.period}
                 </div>
-                <div className="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500">
+                <div className="flex items-center gap-2 text-xs text-gray-500">
                   <FiMapPin size={12} />
                   {item.location}
                 </div>
               </div>
 
               {/* Right Column: Main Content */}
-              <div className="md:col-span-9 relative md:pl-8 border-l-0 md:border-l border-gray-200 dark:border-gray-800">
+              <div className="md:col-span-9 relative md:pl-8 border-l-0 md:border-l border-gray-800">
                 
                 {/* Timeline Dot (Desktop only) */}
-                <div className={`hidden md:block absolute -left-[5px] top-2 w-[9px] h-[9px] rounded-full bg-white dark:bg-[#050505] border-2 ${borderAccentColor} z-10`} />
+                <div className={`hidden md:block absolute -left-[5px] top-2 w-[9px] h-[9px] rounded-full bg-[#050505] border-2 ${borderAccentColor} z-10`} />
 
                 {/* Degree & Institution */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight">
+                    <h3 className="text-xl font-bold text-white leading-tight">
                       {item.degree}
                     </h3>
-                    <h4 className="text-lg text-gray-500 dark:text-gray-400 font-medium mt-1">
+                    <h4 className="text-lg text-gray-400 font-medium mt-1">
                       {item.institution}
                     </h4>
                   </div>
@@ -109,10 +109,10 @@ const Education = () => {
                 {/* Achievements List */}
                 <ul className="space-y-3 mt-4">
                   {item.achievements.map((achievement, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+                    <li key={i} className="flex items-start gap-3 text-gray-300 text-sm md:text-base leading-relaxed">
                       {/* Square Bullet for Technical feel */}
                       <span className={`mt-2 min-w-[6px] h-[6px] ${bgAccentColor} rounded-sm opacity-60 group-hover:opacity-100 transition-opacity`} />
-                      <span className="group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                      <span className="group-hover:text-white transition-colors duration-300">
                         {achievement}
                       </span>
                     </li>

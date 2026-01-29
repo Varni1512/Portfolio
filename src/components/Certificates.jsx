@@ -135,7 +135,7 @@ const Certificates = () => {
   }
 
   return (
-    <section id="certificates" className="py-12 bg-[#050505] dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-100">
+    <section id="certificates" className="py-12 bg-[#0a0a0a] text-gray-100">
       <div className="container mx-auto px-6 max-w-7xl">
         
         {/* Section Header */}
@@ -149,7 +149,7 @@ const Certificates = () => {
             <FiAward className={`${accentColor}`} />
             <span className={`${accentColor}`}>Certifications</span>
           </motion.h2>
-          <div className="h-px w-full bg-gray-200 dark:bg-gray-800" />
+          <div className="h-px w-full bg-gray-800" />
         </div>
         
         <motion.div 
@@ -162,7 +162,7 @@ const Certificates = () => {
           {certificatesData.map((certificate) => (
             <motion.div 
               key={certificate.id}
-              className="group relative flex flex-col h-full bg-gray-50 dark:bg-[#121212] rounded-2xl border border-gray-200 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col h-full bg-[#121212] rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 overflow-hidden"
               variants={itemVariants}
             >
               
@@ -175,7 +175,7 @@ const Certificates = () => {
                   <div className={`p-2.5 rounded-lg ${bgAccentColor}/10 ${accentColor}`}>
                     <FiAward size={22} />
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-gray-400 bg-gray-200 dark:bg-white/5 px-2 py-1 rounded">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-gray-400 bg-white/5 px-2 py-1 rounded">
                     <FiCalendar size={12} />
                     {certificate.date}
                   </div>
@@ -187,23 +187,23 @@ const Certificates = () => {
                 </h3>
 
                 {/* Issuer */}
-                <div className="flex items-center gap-2 mb-4 text-sm font-medium text-gray-600 dark:text-gray-300">
+                <div className="flex items-center gap-2 mb-4 text-sm font-medium text-gray-300">
                   <FiCheckCircle size={14} className={accentColor} />
                   {certificate.issuer}
                 </div>
                 
                 {/* Description */}
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6 line-clamp-3">
+                <p className="text-sm text-gray-400 leading-relaxed mb-6 line-clamp-3">
                   {certificate.description}
                 </p>
 
                 {/* Footer: Link (Pushed to bottom) */}
-                <div className="mt-auto pt-4 border-t border-gray-200 dark:border-white/5">
+                <div className="mt-auto pt-4 border-t border-white/5">
                   <a 
                     href={certificate.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-400 hover:${accentColor} transition-colors group/link`}
+                    className={`inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:${accentColor} transition-colors group/link`}
                   >
                     View Credential
                     <FiArrowUpRight className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
