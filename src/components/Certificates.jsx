@@ -135,7 +135,7 @@ const Certificates = () => {
   }
 
   return (
-    <section id="certificates" className="py-12 bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-100">
+    <section id="certificates" className="py-12 bg-[#050505] dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-100">
       <div className="container mx-auto px-6 max-w-7xl">
         
         {/* Section Header */}

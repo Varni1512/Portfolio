@@ -40,7 +40,7 @@ const Education = () => {
   const borderAccentColor = "border-[#A855F7]";
 
   return (
-    <section id="education" className="py-12 bg-white dark:bg-[#050505] text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <section id="education" className="py-12 bg-[#050505] dark:bg-[#050505] text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-5xl">
         
         {/* Header */}
