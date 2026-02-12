@@ -26,7 +26,7 @@ const Contact = () => {
   })
 
   // EmailJS configuration (Keep your IDs)
-  const SERVICE_ID = 'service_x9emdoi' 
+  const SERVICE_ID = 'service_u110z3u' 
   const TEMPLATE_ID = 'template_n1nnzwn' 
   const PUBLIC_KEY = 'nE0DTkGpW9CdX5Ng1'
 
